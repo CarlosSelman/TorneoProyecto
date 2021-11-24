@@ -1,0 +1,134 @@
+<div class="main">
+  <hr>
+ <div id="content">
+
+
+ <div class="container">
+  <hr>
+  <div class="row">
+      <div class="col">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button  class="btn btn-outline-danger agregar" type="button" (click)="createMatch()">
+                <i class="bi bi-plus">Sortear</i>
+            </button>
+              <button *ngIf="chartData != null" class="btn btn-outline-primary agregar" type="button" (click)="getTeamname()">
+              <i class="bi bi-plus"> Grafica</i>
+            </button>
+            <button class="btn btn-outline-primary agregar" type="button" (click)="generatePDF()">
+              <i class="bi bi-plus"> PDF</i>
+            </button>
+          </div>
+      </div>
+  </div>
+  <hr>
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col">
+        <div  *ngFor="let mad of matchGet">
+          <td *ngIf="mad.jornada != null">
+            Jornada {{mad.jornada}}
+           </td>
+            <table style="margin-right: auto;margin-left: auto;">
+              <td *ngIf="mad.jornada == null">
+                <select class="form-select" id="floatingSelect"   [(ngModel)]="jornada">
+                  <option *ngFor="let j of jornada" value="{{j}}">{{j}}</option>
+
+                </select>
+                  <button  class="btn btn-outline-warning" type="button" data-bs-toggle="modal" (click)="jornadAc(mad._id)">
+                   Jornada
+                 </button>
+              </td>
+              <td>
+                <li style="border:0;" class="list-group-item">  {{mad.team1.name}}</li>
+              </td>
+                <td>
+                  <div style="text-align:center">
+                <img style="width: 75px" src={{mad.team1.picture}}  alt="Logo">
+              </div>
+                </td>
+                <td>
+                  <li style="border:0;" class="list-group-item">{{mad.score1}}</li>
+                </td>
+                <td>
+                  VS
+                </td>
+                <td>
+                  <li style="border:0;" class="list-group-item">{{mad.score2}}</li>
+                </td>
+                <td>
+                  <div style="text-align:center">
+                <img style="width: 75px;" src={{mad.team2.picture}}  alt="Logo">
+                </div>
+                </td>
+                <td>
+                  <li style="border:0;" class="list-group-item">{{mad.team2.name}}</li>
+                </td>
+            </table>
+            <div style="text-align:center;" class="card-body">
+              <ng-container *ngIf="mad.score1 == null && mad.score2 == null">  <button  class="btn btn-outline-success" type="button" data-bs-toggle="modal" (click)="simulation(mad._id)">
+                         <i class="bi bi-controller"> Simular</i>
+                        </button></ng-container>
+
+        </div>
+        <hr>
+        </div>
+      </div>
+      <div class="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Equipo</th>
+              <th scope="col">GP</th>
+              <th scope="col">W</th>
+              <th scope="col">D</th>
+              <th scope="col">L</th>
+              <th scope="col">GF</th>
+              <th scope="col">GA</th>
+              <th scope="col">GD</th>
+              <th scope="col">Puntos</th>
+            </tr>
+          </thead>
+          <tbody >
+
+              <tr *ngFor="let tm of teams" >
+              <td><img src="{{tm.picture}}" style="width:15PX" alt="">  {{tm.name}}</td>
+              <td>{{tm.gamePlayed}}</td>
+              <td>{{tm.wins}}</td>
+              <td>{{tm.draws}}</td>
+              <td>{{tm.loses}}</td>
+              <td>{{tm.goalsFor}}</td>
+              <td>{{tm.goalsAgainst}}</td>
+              <td>{{tm.goalsDiference}}</td>
+              <td>{{tm.points}}</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+        <div style="display: block;">
+          <canvas baseChart
+            chartType="doughnut"
+            [data]="chartData"
+            [colors]="chartColors"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [legend]="chartLegend">
+          </canvas>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>
+
+</div>

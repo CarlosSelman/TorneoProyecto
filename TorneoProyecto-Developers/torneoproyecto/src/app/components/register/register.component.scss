@@ -1,0 +1,41 @@
+p{
+  color: Black;
+}
+
+
+form {
+  width: 380px;
+  min-height: 500px;
+  height: auto;
+  border-radius: 10px;
+  margin: 5% auto;
+  box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+  padding: 5%;
+  background-image: linear-gradient(-225deg, #cfd1d6 80%, #fc0000 20%);
+}
+
+
+html, body {
+margin: 0;
+padding: 0;
+}
+.main {
+/* La sintaxis vieja, obsoleta, pero todavía necesaria, con prefijo, para Opera y navegadores basados en WebKit-based */
+background: -prefix-linear-gradient(top, gray, white);
+/* La nueva sintaxis necesaria para navegadores apegados al estandar (IE 10 y Firefox 10 en adelante), sin prefijo */
+background: linear-gradient(to bottom, gray, white);
+overflow: hidden;
+
+}
+.main .title {
+border: 1px solid #fff;
+width: 300px;
+height: 50px;
+text-align: center;
+background-color: black;
+color: rgb(255, 255, 255);
+top: calc(80vh - 45%);
+left: 50%;
+position: absolute;
+margin-left: -150px;
+}

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOP TOURNAMENT</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+<div class="main">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-5">
+
+
+
+          <form>
+            <header class="head-form">
+              <h2>Registrar Cuenta</h2>
+
+              <p>Para poderte registrar llena todos los campos que se solicitan a continuación.</p>
+           </header>
+
+          <div class="mb-3">
+            <hr>
+            <label for="inputName" class="form-label"><strong><i class="bi bi-phone-landscape-fill"></i> Nombre:</strong></label>
+            <input type="text" placeholder="Introduzca su nombre..." required class="form-control" id="inputName" name="nombre" #nombre="ngModel" [(ngModel)]="user.name">
+          </div>
+          <div class="mb-3">
+
+            <label for="inputApellido" class="form-label"><strong><i class="bi bi-phone-landscape-fill"></i> Apellido:</strong></label>
+            <input type="text" placeholder="Introduzca su apellido..." required class="form-control" id="inputApellido" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName">
+          </div>
+          <div class="mb-3">
+            <label for="inputUser" class="form-label"><strong><i class="bi bi-person-circle"></i> Usuario:</strong></label>
+            <input type="text" placeholder="Introduzca el usuario..." required class="form-control"class="form-control" id="inputUser" name="usuario" #usuario="ngModel" [(ngModel)]="user.user">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><strong><i class="bi bi-envelope-fill"></i> Correo:</strong></label>
+            <input type="email" placeholder="Introduzca el correo..." required class="form-control" id="exampleInputEmail1" name="email" #email="ngModel" [(ngModel)]="user.email">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><strong><i class="bi bi-key-fill"></i> Contraseña:</strong></label>
+            <input type="password" placeholder="Introduzca la contraseña..." required class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="user.password">
+          </div>
+          <div class="mb-3">
+            <label for="inputPicture" class="form-label"><strong><i class="bi bi-link"></i> Imagen de perfil:</strong></label>
+            <input type="text" placeholder="Introduzca el link de la imagen..." required class="form-control" id="inputPicture" name="picture" #picture="ngModel" [(ngModel)]="user.picture">
+          </div>
+          <div class="form-group row">
+            <label for="example-date-input" class="form-label"><i class="bi bi-calendar-event"></i><strong> Fecha de nacimiento:</strong></label>
+            <div>
+              <input class="form-control" type="date" id="example-date-input"
+              name="fecha" #fecha="ngModel"
+              [(ngModel)]="user.age">
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-secondary" (click)="registrar()"><i class="bi bi-person-plus-fill"></i> | Registrar</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

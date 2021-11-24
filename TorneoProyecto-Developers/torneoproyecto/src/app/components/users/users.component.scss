@@ -1,0 +1,13 @@
+.main {
+  /* La sintaxis vieja, obsoleta, pero todavía necesaria, con prefijo, para Opera y navegadores basados en WebKit-based */
+  background: -prefix-linear-gradient(top, gray, white);
+  /* La nueva sintaxis necesaria para navegadores apegados al estandar (IE 10 y Firefox 10 en adelante), sin prefijo */
+  background: linear-gradient(to bottom, gray, white);
+  background-position: bottom;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.table{
+  background-color:white;
+}

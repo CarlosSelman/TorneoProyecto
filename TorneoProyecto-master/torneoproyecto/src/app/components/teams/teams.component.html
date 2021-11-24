@@ -1,0 +1,116 @@
+<div class="main">
+  <hr>
+<div class="container">
+  <hr>
+    <div class="row">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-danger agregar" type="button" data-bs-toggle="modal" data-bs-target="#AgregarEquipo">
+                  <i class="bi bi-plus">  Agregar equipo</i>
+              </button>
+                <button class="btn btn-outline-primary agregar" type="button" routerLink="/match/{{idTeamRuta}}">
+                <i class="bi bi-plus"> Partidos</i>
+              </button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4" *ngFor="let teamE of teamModelE">
+            <div class="card mb-3" style="width: 18rem;">
+                <img  src={{teamE.picture}} class="card-img-top" alt="Logo">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{teamE.name}}</li>
+                        <li class="list-group-item">
+                            <button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#EditarEquipo" (click)="getTeamId(teamE._id)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#EliminarEquipo" (click)="getTeamId(teamE._id)">
+                              <i class="bi bi-trash"></i>
+                              </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Agregar Equipo -->
+<div class="modal fade" id="AgregarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleNombre" class="form-label">Nombre</label>
+                        <input type="nombre" class="form-control" id="exampleNombre" name="name" #name="ngModel" [(ngModel)]="teamModel.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFoto" class="form-label">URL de foto</label>
+                        <input type="foto" class="form-control" id="exampleFoto" name="picture" #picture="ngModel" [(ngModel)]="teamModel.picture">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="createTeam()">Agregar </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Editar Equipo -->
+<div class="modal fade" id="EditarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Equipo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleNombre" class="form-label">Nombre</label>
+                        <input type="nombre" class="form-control" id="exampleNombre" name="name" #name="ngModel" [(ngModel)]="teamModelB.name">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFoto" class="form-label">URL de foto</label>
+                        <input type="foto" class="form-control" id="exampleFoto" name="picture" #picture="ngModel" [(ngModel)]="teamModelB.picture">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="editTeam()">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar Equipo -->
+<div class="modal fade" id="EliminarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Esta seguro que desea eliminar este quipo!!?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteTeam(teamModelB._id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "torneoproyecto",
+  "version": "1.0.0",
+  "description": "proyecto en equipo 6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgarcia2016405/TorneoProyecto.git"
+  },
+  "author": "Byron y compania",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bgarcia2016405/TorneoProyecto/issues"
+  },
+  "homepage": "https://github.com/bgarcia2016405/TorneoProyecto#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "html-pdf": "^3.0.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.12",
+    "nodemon": "^2.0.7"
+  }
+}

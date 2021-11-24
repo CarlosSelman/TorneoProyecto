@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TOP TOURNAMENT</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .main {
+      /* La sintaxis vieja, obsoleta, pero todavía necesaria, con prefijo, para Opera y navegadores basados en WebKit-based */
+      background: -prefix-linear-gradient(top, gray, white);
+      /* La nueva sintaxis necesaria para navegadores apegados al estandar (IE 10 y Firefox 10 en adelante), sin prefijo */
+      background: linear-gradient(to bottom, gray, white);
+      background-position: bottom;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .btn{
+      background-color: #df333a;
+      color: #ffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <br>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div style="text-align:center " class="col col-lg-6">
+          <br>
+          <div class="card mb-3">
+            <img src="../../../assets/Top Tournament.png" style="max-width: 25%;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">¿Qué es TOP TOURNAMENT?</h5>
+              <p class="card-text">Es una aplicación que te permite ver torneos de soccer con sus respectivos equipos y
+                resultados, de manera rápida y sencilla</p>
+              <img src="../../../assets/logoTorneos.png" routerLink="/tournaments" routerLinkActive="active"
+                style="max-width: 25%;" alt="...">
+              <p class="card-text"><small class="text-muted" routerLink="/tournaments" routerLinkActive="active">Presiona
+                  para ver los torneos</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

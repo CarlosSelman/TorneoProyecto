@@ -1,0 +1,123 @@
+<div class="main">
+  <hr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <ng-container>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-danger agregar" type="button" data-bs-toggle="modal" data-bs-target="#modalCreateTournament">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+          </ng-container>
+
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 tarjeta" *ngFor="let found of tournamentModelGet">
+            <div class="card mb-3" style="max-width: 21rem;">
+                <div class="card-header tarjetas">
+                    <div class="col">
+                        {{found.name}}
+                    </div>
+                    <div class= "imagen">
+                        <img  src={{found.picture}} class="card-img-top imagex" alt="Logo">
+                    </div>
+                    <div class="col botones">
+                        <button class="btn btn-outline-dark" type="button" [routerLink]="['/teams', found._id]">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalEditTournament" (click)="getTournamentId(found._id)">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalDeleteTournament" (click)="getTournamentId(found._id)">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Agregar Torneo-->
+<div class="modal fade" id="modalCreateTournament" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Torneo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputTitulo" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" name="name" #name="ngModel" [(ngModel)]="tournamentModelCreate.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFoto" class="form-label">URL de foto</label>
+                        <input type="foto" class="form-control" id="exampleFoto" name="picture" #picture="ngModel" [(ngModel)]="tournamentModelCreate.picture">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="createTournament()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Torneo-->
+<div class="modal fade" id="modalEditTournament" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Torneo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputTitulo" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" name="name" #name="ngModel" [(ngModel)]="tournamentModelGetId.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFoto" class="form-label">URL de foto</label>
+                        <input type="foto" class="form-control" id="exampleFoto" name="picture" #picture="ngModel" [(ngModel)]="tournamentModelGetId.picture">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="editTournament()">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminar Torneo-->
+<div class="modal fade" id="modalDeleteTournament" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Desea eliminar el torneo?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inputTitulo" class="form-label">Torneo</label>
+                        <input type="text" class="form-control" id="inputName" name="name" #name="ngModel" [(ngModel)]="tournamentModelGetId.name" disabled>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, cancelar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteTournament()">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
